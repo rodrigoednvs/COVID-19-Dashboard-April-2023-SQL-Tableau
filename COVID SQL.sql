@@ -1,10 +1,10 @@
 /*
 
-Consultas usadas para o projeto Tableau Dashboard COVID-19 - Abril 2023
-https://public.tableau.com/app/profile/rodrigonvs/viz/COVID-19Dashboard-Abril2023/COVID-192023
+Queries used for the Tableau Dashboard COVID-19 project - April 2023
+https://public.tableau.com/app/profile/rodrigonvs/viz/COVID-19Dashboard-April2023/COVID-192023
 */
 
--- 1. Total de Casos Globais, Total de Mortes e Porcentagem de Mortes Globais
+-- 1. Total of Global Cases, Total Deaths and Percentage of GLobal Deaths
 
 SELECT 
   SUM(new_cases) AS total_cases, 
@@ -14,7 +14,7 @@ FROM `portifolio-project-05042023.covid_dataset.covid_deaths`
 WHERE continent IS NOT NULL
 ORDER BY 1,2
 
--- 2. Total de Mortes por Continente
+-- 2. Total Deaths by Continent
 
 SELECT 
   location, SUM(new_deaths) as TotalDeathCount
@@ -24,7 +24,7 @@ AND location IN ('Europe', 'Asia', 'North America', 'South America', 'Africa', '
 GROUP BY location
 ORDER BY TotalDeathCount DESC
 
--- 3. Porcentagem de Infectados por País
+-- 3. Percentage of Infected by Country
 
 SELECT 
   Location, 
@@ -35,7 +35,7 @@ FROM `portifolio-project-05042023.covid_dataset.covid_deaths`
 GROUP BY Location, Population
 ORDER BY PercentPopulationInfected DESC
 
--- 4. Porcentagem de Infectados por País - Mensal
+-- 4. Percentage of Infected by Country - Monthly
 
 SELECT 
   Location, 
